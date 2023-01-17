@@ -46,19 +46,21 @@ export async function getStaticProps({ params }) {
 }
  
 export async function getStaticPaths() {
-  const storyblokApi = getStoryblokApi();
-    let { data } = await storyblokApi.get(`cdn/links/`)
+  const storyblokApi = getStoryblokApi()
+  let { data } = await storyblokApi.get("cdn/links/" ,{
+    version: 'draft'
+  })
  
-  let paths = [];
+  let paths = []
   Object.keys(data.links).forEach((linkKey) => {
     if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") {
-      return;
+      return
     }
  
     const slug = data.links[linkKey].slug;
-    let splittedSlug = slug.split("/");
+    let splittedSlug = slug.split("/")
  
-    paths.push({ params: { slug: splittedSlug } });
+    paths.push({ params: { slug: splittedSlug } })
   });
  
   return {
