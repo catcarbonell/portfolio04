@@ -31,7 +31,7 @@ const components = {
 }
 
 storyblokInit({
-  accessToken: process.env.SBTOKEN,
+  accessToken: process.env.PRODSBTOKEN,
   use: [apiPlugin],
   apiOptions: { region: 'us' },
   components,
