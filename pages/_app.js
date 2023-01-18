@@ -36,7 +36,10 @@ const components = {
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_PREVIEWSBTOKEN,
   use: [apiPlugin],
-  apiOptions: { region: 'us' },
+  apiOptions: { 
+    region: 'us',
+    timeout: 5,
+  },
   components,
 });
 
@@ -46,7 +49,7 @@ function MyApp({ Component, pageProps }){
   if (router.pathname === '/404' || router.pathname === '/500') {
     return <Component {...pageProps} />
   }
-  
+
   return (
     <Layout story={pageProps.nav}>
       <Component {...pageProps} />
