@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import { useRouter } from 'next/router'
 import { storyblokInit, apiPlugin } from "@storyblok/react"
 import Banner from '../components/Banner'
 import Button from '../components/Button'
@@ -40,6 +41,12 @@ storyblokInit({
 });
 
 function MyApp({ Component, pageProps }){ 
+  const router = useRouter();
+  
+  if (router.pathname === '/404' || router.pathname === '/500') {
+    return <Component {...pageProps} />
+  }
+  
   return (
     <Layout story={pageProps.nav}>
       <Component {...pageProps} />
