@@ -32,7 +32,7 @@ const components = {
 }
 
 storyblokInit({
-  accessToken: "ASVCh03mZeTysiVrxBgikAtt",
+  accessToken: process.env.NEXT_PUBLIC_PREVIEWSBTOKEN,
   use: [apiPlugin],
   apiOptions: { region: 'us' },
   components,
