@@ -1,7 +1,7 @@
 // import { storyblokEditable } from "@storyblok/react"
 const Footer = () => (
   <div>
-    Footer
+    Preview Footer
   </div>
 );
  
