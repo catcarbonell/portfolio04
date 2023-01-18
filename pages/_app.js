@@ -1,6 +1,8 @@
 import '../styles/globals.css'
+import { useRouter } from 'next/router'
 import { storyblokInit, apiPlugin } from "@storyblok/react"
 import Banner from '../components/Banner'
+import Button from '../components/Button'
 import ContactForm from '../components/ContactForm'
 import Project from '../components/Project'
 import Footer from '../components/Footer'
@@ -16,8 +18,8 @@ import Richtext from '../components/Richtext'
 
 const components = {
   banner: Banner,
+  button: Button,
   "contact_form": ContactForm,
-  project: Project,
   footer: Footer,
   grid: Grid,
   image: Image,
@@ -26,12 +28,13 @@ const components = {
   "nav_link": NavLink,
   "nav_menu": NavMenu,
   page: Page,
+  project: Project,
   "project-cards": ProjectCards,
   richtext: Richtext,
 }
 
 storyblokInit({
-  accessToken: process.env.SBTOKEN,
+  accessToken: process.env.NEXT_PUBLIC_PREVIEWSBTOKEN,
   use: [apiPlugin],
   apiOptions: { region: 'us' },
   components,
