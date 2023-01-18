@@ -38,6 +38,12 @@ storyblokInit({
 });
 
 function MyApp({ Component, pageProps }){ 
+  const router = useRouter();
+  
+  if (router.pathname === '/404' || router.pathname === '/500') {
+    return <Component {...pageProps} />
+  }
+  
   return (
     <Layout story={pageProps.nav}>
       <Component {...pageProps} />
