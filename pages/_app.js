@@ -21,7 +21,6 @@ const components = {
   footer: Footer,
   grid: Grid,
   image: Image,
-  layout: Layout,
   nav: Nav,
   "nav_link": NavLink,
   "nav_menu": NavMenu,
