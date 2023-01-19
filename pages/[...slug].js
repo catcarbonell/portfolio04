@@ -23,13 +23,17 @@ export default function Page({ story, preview }) {
   );
 }
  
-export async function getStaticProps({ params }) {
+export async function getStaticProps( context, { params }) {
   let slug = params.slug ? params.slug.join("/") : "home";
  
   let sbParams = {
     version: "published",
     resolve_relations: ["project-cards.projects"],
   };
+
+  if (context.preview) {
+    sbParams.version = "draft";
+  }
  
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams)
