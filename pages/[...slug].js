@@ -27,7 +27,7 @@ export async function getStaticProps({ params }) {
   let slug = params.slug ? params.slug.join("/") : "home";
  
   let sbParams = {
-    version: "draft",
+    version: "published",
     resolve_relations: ["project-cards.projects"],
   };
  
@@ -48,7 +48,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi()
   let { data } = await storyblokApi.get("cdn/links/" ,{
-    version: 'draft'
+    version: "published",
   })
  
   let paths = []

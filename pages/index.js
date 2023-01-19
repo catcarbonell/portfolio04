@@ -19,12 +19,10 @@ export default function Home({ story, preview }) {
 }
  
 export async function getStaticProps() {
-  // home is the default slug for the homepage in Storyblok
   let slug = "home";
  
-  // load the draft version
   let sbParams = {
-    version: "draft", // or 'published'
+    version: "published", // or 'published'
     resolve_relations: ["project-cards.projects"],
   };
  
