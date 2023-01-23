@@ -39,6 +39,7 @@ export async function getStaticProps(context) {
       story: data ? data.story : false,
       key: data ? data.story.id : false,
       nav: nav ? nav.story : false,
+      preview: context.preview || false,
     },
     revalidate: 3600, // revalidate every hour
   };
